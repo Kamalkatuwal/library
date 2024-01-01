@@ -1,7 +1,7 @@
 let addbtn=document.getElementById('gede');
 let bookdetail=document.querySelector('form');
 let plusbtn=document.getElementById('submit');
-mylibrary=[]
+mylibrary=[];
 function render(){
     let bookelement=document.getElementById("container");
     bookelement.innerHTML = '';
