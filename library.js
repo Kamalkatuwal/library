@@ -8,10 +8,13 @@ function render(){
     for(i=0; i<mylibrary.length; i++){
         let book=mylibrary[i];
         let bookelement1=document.createElement('div');
-        bookelement1.innerHTML=`<h1>${book.title}</h1>
+        bookelement1.setAttribute("class","grid")
+        bookelement1.innerHTML=`
+        <div class="inner"><h1>${book.title}</h1>
         <p>${book.author}</p>
         <p>${book.pages}</p>
-        <p>${book.read?"read":"not read"}</p>`;
+        <p>${book.read?"read":"not read"}</p>
+        </div>`;
         bookelement.appendChild(bookelement1);
     }
 }
@@ -19,6 +22,7 @@ plusbtn.addEventListener('click',(e)=>{
     e.preventDefault();
     updateTObook();
     render();
+    displaydigx();
 
 })
 addbtn.addEventListener('click',displaydig);
@@ -28,6 +32,9 @@ function updateTObook(){
     let pages=bookdetail.pages.value;
     let read=bookdetail.read.checked;
     let bookvalue=new Bookinfo(title,author,pages,read);
+    if(mylibrary.includes(bookvalue)){
+        alert('alreadt exist')
+    }
     mylibrary.push(bookvalue);
     console.log('obj added')
 
@@ -35,6 +42,10 @@ function updateTObook(){
 
 function displaydig(){
     bookdetail.classList.remove('display');
+    console.log('gede')
+}
+function displaydigx(){
+    bookdetail.classList.add('display');
     console.log('gede')
 }
 
